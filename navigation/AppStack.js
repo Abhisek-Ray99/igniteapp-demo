@@ -2,6 +2,8 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import AntDesign from 'react-native-vector-icons/AntDesign'
 
 
 import HomeScreen from '../screens/home/Home'
@@ -39,12 +41,22 @@ const AppStack = () => {
             <Tab.Screen
                 name="Home"
                 component={HomeScreen}
-                options={{ headerShown: false }}
+                options={{
+                    headerShown: false,
+                    tabBarIcon: ({ color, size }) => (
+                        <MaterialCommunityIcons name="home" color={color} size={size} />
+                    ),
+                }}
             />
             <Tab.Screen
                 name="User"
                 component={UserSetting}
-                options={{ headerShown: false }}
+                options={{
+                    headerShown: false,
+                    tabBarIcon: ({ color, size }) => (
+                        <AntDesign name="user" color={color} size={size} />
+                    ),
+                }}
             />
         </Tab.Navigator>
     )

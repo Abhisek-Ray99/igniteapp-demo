@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { StyleSheet, Text, View, ScrollView, Image, Dimensions, TouchableOpacity } from 'react-native'
+import { Picker } from '@react-native-picker/picker';
+
 
 import Carousel from '../../components/Carousel'
 
 
-
 const UserProfile = () => {
+
+    const [selectedValue, setSelectedValue] = useState("Dating & friends");
 
     const summary = [
         {
@@ -26,7 +29,7 @@ const UserProfile = () => {
         return summary.map((item) => {
             return (
                 <View key={item.key} style={{ padding: 16 }}>
-                    <Text style={[styles.keyText, {fontSize: 18}]}>{item.lock}</Text>
+                    <Text style={[styles.keyText, { fontSize: 18 }]}>{item.lock}</Text>
                     <Text style={{ color: '#000', fontSize: 18, }}>{item.key}</Text>
                 </View>
             )
@@ -36,7 +39,7 @@ const UserProfile = () => {
     return (
         <ScrollView style={styles.profileContainer}>
             <Carousel />
-            <Text>Taige, United States, 34</Text>
+            <Text style={styles.imgText}>Taige, United States, 34</Text>
             <View style={styles.caption}>
                 <View>
                     <Text style={styles.roleText}>Character:</Text>
@@ -67,10 +70,17 @@ const UserProfile = () => {
             </View>
             <View>{list()}</View>
             <View>
-                <Text style={[styles.keyText, {fontSize: 16, padding: 16}]}>Fairytrail Mode(tell others know you're not open to dating)</Text>
+                <Text style={[styles.keyText, { fontSize: 16, padding: 16 }]}>Fairytrail Mode(tell others know you're not open to dating)</Text>
             </View>
             <View>
-                
+                <Picker
+                    selectedValue={selectedValue}
+                    onValueChange={(itemValue, itemIndex) =>
+                        setSelectedValue(itemValue)
+                    }>
+                    <Picker.Item label="Dating & friends" value="datingFriends" />
+                    <Picker.Item label="only friends" value="onlyFriends" />
+                </Picker>
             </View>
         </ScrollView>
     )
@@ -82,11 +92,12 @@ const styles = StyleSheet.create({
     profileContainer: {
         flex: 1,
     },
-    profileImage: {
-        margin: 20,
-        width: '90%',
-        height: 300,
-        borderRadius: 10,
+    imgText: {
+        paddingHorizontal: 16,
+        color: '#000',
+        fontSize: 25,
+        marginVertical: 10,
+        fontWeight: 'bold'
     },
     caption: {
         flexDirection: "row",
@@ -123,5 +134,8 @@ const styles = StyleSheet.create({
     },
     keyText: {
         color: '#88B08F', fontWeight: 'bold',
+    },
+    inputPrompt: {
+        borderBottomColor: '#000',
     }
 })
