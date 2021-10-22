@@ -3,7 +3,7 @@
 
 This is a simple User UI based App. 
 
-I used `react-navigation` for the best navigation experience on react-native
+I used [react-navigation](https://reactnavigation.org/) for the best navigation experience on react-native
 
 Install these Packages📦 to get started 
 
@@ -33,6 +33,20 @@ react-native-vector-icons`
     "react-native-screens": "^3.8.0",
     "react-native-vector-icons": "^8.1.0"
   },
+
 ```
+You can even checkout the Package.json file.
+
+
+## 🔨here below is the demo of my task
 
 ![ignite app](https://github.com/Abhisek-Ray99/igniteapp-demo/blob/master/assets/igniteappimg.gif?raw=true)
+
+
+
+
+##### Start your project by following the below command
+`yarn start or npm start`
+
+##### Again open another terminal in your project and start building your project
+`yarn android or npm android`
