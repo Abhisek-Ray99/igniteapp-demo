@@ -35,3 +35,4 @@ react-native-vector-icons`
   },
 ```
 
+![ignite app](https://github.com/Abhisek-Ray99/igniteapp-demo/blob/master/assets/igniteappimg.gif?raw=true)
